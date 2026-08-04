@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Offres — Top Marché Bussigny</title>
+<meta name="description" content="Découvrez toutes les offres et le catalogue de produits de Top Marché à Bussigny." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<div class="demo-banner" data-i18n="demo_banner">Site de démonstration réalisé pour présentation au propriétaire de Top Marché, Bussigny.</div>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand"><span class="brand-mark">🛒</span> Top Marché</a>
+    <nav class="main-nav">
+      <a href="index.html" data-i18n="nav_home">Accueil</a>
+      <a href="ofertas.html" class="active" data-i18n="nav_offers">Offres</a>
+      <a href="contato.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button data-lang="fr">FR</button>
+        <button data-lang="pt">PT</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="contato.html" class="btn btn-outline" style="padding:10px 18px;" data-i18n="nav_cta">Nous trouver</a>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="section" style="padding-top:56px;">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="offers_page_eyebrow">Catalogue</span>
+      <h2 data-i18n="offers_page_title">Toutes nos offres</h2>
+      <p data-i18n="offers_page_sub">Filtrez par catégorie pour découvrir nos promotions et produits du moment. Prix indicatifs en CHF.</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-cat="all" data-i18n="filter_all">Tout</button>
+      <button class="filter-btn" data-cat="fruits" data-i18n="filter_fruits">Fruits & Légumes</button>
+      <button class="filter-btn" data-cat="bakery" data-i18n="filter_bakery">Boulangerie</button>
+      <button class="filter-btn" data-cat="dairy" data-i18n="filter_dairy">Produits laitiers</button>
+      <button class="filter-btn" data-cat="drinks" data-i18n="filter_drinks">Boissons</button>
+      <button class="filter-btn" data-cat="grocery" data-i18n="filter_grocery">Épicerie</button>
+      <button class="filter-btn" data-cat="meat" data-i18n="filter_meat">Boucherie</button>
+    </div>
+
+    <div class="grid-products" id="product-list"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span>🛒</span> Top Marché</div>
+        <p data-i18n="footer_about_text">Votre supermarché de proximité à Bussigny, Vaud. Site de démonstration créé pour présenter une nouvelle vitrine en ligne.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_links_title">Navigation</h4>
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <a href="ofertas.html" data-i18n="nav_offers">Offres</a>
+        <a href="contato.html" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div>
+        <h4 data-i18n="footer_contact_title">Contact</h4>
+        <span data-i18n="info_address_text">Route de Genève 5, 1030 Bussigny, Suisse</span>
+        <span data-i18n="info_phone_text">021 000 00 00 · contact@topmarche-bussigny.ch</span>
+      </div>
+      <div>
+        <h4 data-i18n="footer_lang_title">Langue</h4>
+        <div class="lang-switch" style="width:fit-content;">
+          <button data-lang="fr">FR</button>
+          <button data-lang="pt">PT</button>
+          <button data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Top Marché — <span data-i18n="footer_rights">Tous droits réservés.</span></span>
+      <span data-i18n="footer_demo">Site de démonstration — non affilié officiellement, réalisé à titre de proposition commerciale.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script>
+  let currentCat = "all";
+
+  function renderProducts(lang) {
+    const wrap = document.getElementById("product-list");
+    if (!wrap) return;
+    const dict = I18N[lang] || I18N.fr;
+    const catLabels = {
+      fruits: dict.filter_fruits, bakery: dict.filter_bakery, dairy: dict.filter_dairy,
+      drinks: dict.filter_drinks, grocery: dict.filter_grocery, meat: dict.filter_meat,
+    };
+    const list = currentCat === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.cat === currentCat);
+    wrap.innerHTML = list.map((p) => `
+      <div class="product-card">
+        ${p.promo ? `<span class="product-badge">${dict.badge_promo}</span>` : ""}
+        <div class="product-media">${p.icon}</div>
+        <div class="product-body">
+          <div class="product-cat">${catLabels[p.cat]}</div>
+          <div class="product-name">${p.name[lang]}</div>
+          <div class="price-row">
+            <span class="price">CHF ${p.price.toFixed(2)}</span>
+            ${p.oldPrice ? `<span class="price-old">CHF ${p.oldPrice.toFixed(2)}</span>` : ""}
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  window.onLangChange = renderProducts;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("#filters .filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentCat = btn.getAttribute("data-cat");
+        document.querySelectorAll("#filters .filter-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderProducts(window.TopMarche.getLang());
+      });
+    });
+  });
+</script>
+<script src="assets/js/main.js"></script>
+<script>renderProducts(window.TopMarche ? window.TopMarche.getLang() : "fr");</script>
+</body>
+</html>
