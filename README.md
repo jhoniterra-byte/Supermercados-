@@ -12,8 +12,8 @@ chaque page.
 ## Contenu
 
 - `index.html` — page d'accueil (hero, atouts, aperçu des services, pourquoi
-  nous choisir, étapes du processus, zone d'intervention avec carte, appel
-  à l'action)
+  nous choisir, galerie « Nos réalisations », étapes du processus, zone
+  d'intervention avec carte, appel à l'action)
 - `services.html` — détail des 4 prestations (résidentiel, bureaux, fin de
   bail, nettoyage en profondeur) et foire aux questions
 - `contact.html` — coordonnées, horaires et formulaire de devis (ouvre le
@@ -29,6 +29,50 @@ chaque page.
 - E-mail : `jhoniterra@gmail.com`
 - Zone d'intervention : Lausanne, Renens, Prilly, Pully, Écublens,
   Chavannes-près-Renens, Crissier, Épalinges, Morges
+
+## Ajouter les photos de la galerie
+
+La section « Nos réalisations » (`index.html`, ancre `#realisations`) contient
+six emplacements. Chacun affiche pour l'instant un cadre vide dont la légende
+indique **la prise de vue à réaliser** — la liste sert donc aussi de
+pense-bête pour photographier.
+
+Aucune photo du site n'est une image d'archive ou générée : les cadres
+restent volontairement vides tant que les vraies photos ne sont pas prises.
+
+Pour remplacer un emplacement par une vraie photo :
+
+1. Déposer l'image dans `assets/img/` (par ex. `assets/img/cuisine.jpg`).
+2. Dans `index.html`, remplacer le contenu du `div.shot-frame` correspondant :
+
+   ```html
+   <!-- avant -->
+   <div class="shot-frame">
+     <span class="shot-ico" aria-hidden="true">🍳</span>
+     <span class="shot-add">Photo à ajouter</span>
+   </div>
+
+   <!-- après -->
+   <div class="shot-frame">
+     <img src="assets/img/cuisine.jpg" alt="Cuisine après nettoyage" />
+   </div>
+   ```
+
+Le cadrage est géré par le CSS (`object-fit: cover`, format 4/3), donc
+n'importe quelle photo s'intègre sans retouche. Viser environ 1200 px de
+large et compresser en JPEG pour garder le site rapide.
+
+Conseils de prise de vue : lumière du jour, même angle pour un
+« avant / après », et pas de personne ni d'objet personnel reconnaissable
+sans l'accord du client.
+
+## WhatsApp
+
+Le bouton flottant en bas à droite (présent sur les trois pages) et les
+liens de la page contact pointent vers `https://wa.me/41767679316` avec un
+message pré-rempli. Pour changer le numéro, remplacer `41767679316`
+(format international, sans `+` ni zéro initial) partout dans les fichiers
+HTML.
 
 ## Animations & accessibilité
 
@@ -57,7 +101,9 @@ hébergement statique.
 ## Personnalisation avant mise en ligne réelle
 
 - Confirmer téléphone, e-mail et horaires réels
-- Ajouter de vraies photos (actuellement icônes/emoji en guise de visuels)
+- Remplir la galerie « Nos réalisations » avec de vraies photos (voir
+  ci-dessus) — c'est l'élément qui convainc le plus un futur client
+- Ajouter de vraies photos aux autres sections (actuellement icônes/emoji)
 - Remplacer le formulaire "mailto" par un vrai service d'envoi si un volume
   important de demandes est attendu (ex. Formspree, Netlify Forms)
 - Retirer le bandeau « site de démonstration » en haut de chaque page

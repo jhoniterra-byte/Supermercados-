@@ -1365,6 +1365,152 @@ h4 {
   display: block;
 }
 
+/* ---------------------------------------------------- Nos réalisations */
+
+.gallery-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--teal-soft);
+  color: var(--teal-deep);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.shot {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.shot:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.shot-frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  background: repeating-linear-gradient(
+      135deg,
+      var(--paper-deep),
+      var(--paper-deep) 12px,
+      var(--paper) 12px,
+      var(--paper) 24px
+    );
+  border-bottom: 1px solid var(--line);
+}
+
+/* A real photo simply replaces the placeholder's children. */
+.shot-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shot-ico {
+  font-size: 2rem;
+  opacity: 0.75;
+}
+
+.shot-add {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.shot figcaption {
+  padding: 18px 20px;
+}
+
+.shot figcaption strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.shot figcaption span {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ------------------------------------------------------------ WhatsApp */
+
+.btn-wa {
+  background: #25d366;
+  color: #04301a;
+  box-shadow: 0 14px 30px -12px rgba(37, 211, 102, 0.6);
+}
+
+.btn-wa:hover {
+  background: #1eb955;
+  transform: translateY(-2px);
+}
+
+.btn-wa svg,
+.wa-fab svg {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+}
+
+.wa-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 150;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #04301a;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 14px 34px -10px rgba(4, 48, 26, 0.45);
+  transition: transform 0.3s var(--ease), background 0.25s;
+}
+
+.wa-fab svg {
+  width: 22px;
+  height: 22px;
+}
+
+.wa-fab:hover {
+  background: #1eb955;
+  transform: translateY(-3px);
+}
+
+.wa-fab:focus-visible,
+.btn:focus-visible,
+.main-nav a:focus-visible,
+.menu-toggle:focus-visible {
+  outline: 3px solid var(--teal-deep);
+  outline-offset: 3px;
+}
+
 /* --------------------------------------------------------- Bandeau démo */
 
 .demo-banner {
@@ -1432,6 +1578,10 @@ h4 {
     max-width: 420px;
     margin: 0 auto;
   }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 760px) {
@@ -1483,8 +1633,21 @@ h4 {
 
   .service-grid,
   .feature-grid,
-  .process-grid {
+  .process-grid,
+  .gallery {
     grid-template-columns: 1fr;
+  }
+
+  /* Icon-only so the button never sits on top of the content it floats over. */
+  .wa-fab {
+    right: 16px;
+    bottom: 16px;
+    padding: 15px;
+    gap: 0;
+  }
+
+  .wa-fab .wa-label {
+    display: none;
   }
 
   .check-grid {
