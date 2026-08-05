@@ -33,24 +33,24 @@ chaque page.
 ## Ajouter les photos de la galerie
 
 La section « Nos réalisations » (`index.html`, ancre `#realisations`) contient
-six emplacements. Chacun affiche pour l'instant un cadre vide dont la légende
-indique **la prise de vue à réaliser** — la liste sert donc aussi de
-pense-bête pour photographier.
+six emplacements. Chacun affiche pour l'instant une **illustration
+provisoire** — un dessin vectoriel, écrit à la main dans le fichier — et sa
+légende décrit **la prise de vue qui doit la remplacer**. La liste sert donc
+aussi de pense-bête pour photographier.
 
-Aucune photo du site n'est une image d'archive ou générée : les cadres
-restent volontairement vides tant que les vraies photos ne sont pas prises.
+Ces dessins ne sont ni des photographies d'archive ni des images générées :
+ils sont volontairement graphiques, pour qu'on ne puisse jamais les prendre
+pour un chantier réalisé par l'entreprise.
 
-Pour remplacer un emplacement par une vraie photo :
+Pour remplacer une illustration par une vraie photo :
 
 1. Déposer l'image dans `assets/img/` (par ex. `assets/img/cuisine.jpg`).
-2. Dans `index.html`, remplacer le contenu du `div.shot-frame` correspondant :
+2. Dans `index.html`, remplacer le `<svg>…</svg>` du `div.shot-frame`
+   correspondant par une balise `<img>` :
 
    ```html
    <!-- avant -->
-   <div class="shot-frame">
-     <span class="shot-ico" aria-hidden="true">🍳</span>
-     <span class="shot-add">Photo à ajouter</span>
-   </div>
+   <div class="shot-frame"><svg viewBox="0 0 400 300" …>…</svg></div>
 
    <!-- après -->
    <div class="shot-frame">
@@ -101,8 +101,8 @@ hébergement statique.
 ## Personnalisation avant mise en ligne réelle
 
 - Confirmer téléphone, e-mail et horaires réels
-- Remplir la galerie « Nos réalisations » avec de vraies photos (voir
-  ci-dessus) — c'est l'élément qui convainc le plus un futur client
+- Remplacer les illustrations de « Nos réalisations » par de vraies photos
+  (voir ci-dessus) — c'est l'élément qui convainc le plus un futur client
 - Ajouter de vraies photos aux autres sections (actuellement icônes/emoji)
 - Remplacer le formulaire "mailto" par un vrai service d'envoi si un volume
   important de demandes est attendu (ex. Formspree, Netlify Forms)
