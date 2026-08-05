@@ -11,16 +11,30 @@ toute mise en ligne.
 
 ## Contenu
 
-- `index.html` — page d'accueil (présentation, points forts, offres en
-  vedette, horaires/adresse, carte, appel à l'action)
+- `index.html` — page d'accueil (hero animé, chiffres clés, points forts,
+  rayons, offres en vedette, horaires/adresse, carte, appel à l'action)
 - `ofertas.html` — catalogue complet avec filtres par catégorie
+  (le filtre actif se reflète dans l'URL : `ofertas.html?cat=bakery`)
 - `contato.html` — coordonnées, carte, horaires et formulaire de contact
   (démo, n'envoie aucune donnée)
 - `assets/css/style.css` — styles partagés
-- `assets/js/i18n.js` — dictionnaire de traductions (FR/PT/EN) et données
-  produits
-- `assets/js/main.js` — logique JS (sélecteur de langue, menu mobile,
-  formulaire)
+- `assets/js/i18n.js` — dictionnaire de traductions (FR/PT/EN), catégories
+  et données produits
+- `assets/js/main.js` — logique JS (langue, menu mobile, révélations au
+  défilement, compteurs, parallaxe, formulaire)
+
+## Animations & accessibilité
+
+Les animations sont pilotées par `IntersectionObserver` et de simples
+transitions CSS — aucune bibliothèque externe.
+
+Deux garde-fous importants :
+
+- Tout ce qui est masqué au départ est préfixé par `.js` (classe posée par
+  un script en ligne dans le `<head>`). **Sans JavaScript, rien n'est
+  masqué** : la page reste entièrement lisible.
+- `prefers-reduced-motion: reduce` désactive les mouvements et affiche
+  immédiatement les contenus et les compteurs.
 
 ## Utilisation
 

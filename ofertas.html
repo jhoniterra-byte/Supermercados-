@@ -3,56 +3,102 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.classList.add("js");</script>
 <title>Offres — Top Marché Bussigny</title>
 <meta name="description" content="Découvrez toutes les offres et le catalogue de produits de Top Marché à Bussigny." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+
+<div class="preloader">
+  <div style="display:grid;place-items:center;">
+    <div class="preloader-mark">🛒</div>
+    <div class="preloader-bar"><span></span></div>
+  </div>
+</div>
+
+<div class="scroll-progress"></div>
 
 <div class="demo-banner" data-i18n="demo_banner">Site de démonstration réalisé pour présentation au propriétaire de Top Marché, Bussigny.</div>
 
 <header class="site-header">
   <div class="nav-wrap">
     <a href="index.html" class="brand"><span class="brand-mark">🛒</span> Top Marché</a>
+
     <nav class="main-nav">
       <a href="index.html" data-i18n="nav_home">Accueil</a>
       <a href="ofertas.html" class="active" data-i18n="nav_offers">Offres</a>
       <a href="contato.html" data-i18n="nav_contact">Contact</a>
     </nav>
+
     <div class="nav-right">
       <div class="lang-switch">
+        <span class="lang-pill"></span>
         <button data-lang="fr">FR</button>
         <button data-lang="pt">PT</button>
         <button data-lang="en">EN</button>
       </div>
-      <a href="contato.html" class="btn btn-outline" style="padding:10px 18px;" data-i18n="nav_cta">Nous trouver</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a href="contato.html" class="btn btn-ghost btn-sm" data-i18n="nav_cta">Nous trouver</a>
+      <button class="menu-toggle" aria-label="Menu"><i></i><i></i><i></i></button>
     </div>
   </div>
 </header>
 
-<section class="section" style="padding-top:56px;">
+<section class="page-head">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-vignette"></div>
+  </div>
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="offers_page_eyebrow">Catalogue</span>
-      <h2 data-i18n="offers_page_title">Toutes nos offres</h2>
-      <p data-i18n="offers_page_sub">Filtrez par catégorie pour découvrir nos promotions et produits du moment. Prix indicatifs en CHF.</p>
-    </div>
+    <span class="eyebrow" data-i18n="offers_page_eyebrow">Catalogue</span>
+    <h1>
+      <span class="line"><span data-i18n="offers_page_title" style="--d:200ms">Toutes nos offres</span></span>
+    </h1>
+    <p data-i18n="offers_page_sub">Filtrez par catégorie pour découvrir nos promotions et produits du moment. Prix indicatifs en CHF.</p>
+  </div>
+</section>
 
+<div class="filters-bar">
+  <div class="container">
     <div class="filters" id="filters">
       <button class="filter-btn active" data-cat="all" data-i18n="filter_all">Tout</button>
-      <button class="filter-btn" data-cat="fruits" data-i18n="filter_fruits">Fruits & Légumes</button>
+      <button class="filter-btn" data-cat="fruits" data-i18n="filter_fruits">Fruits &amp; Légumes</button>
       <button class="filter-btn" data-cat="bakery" data-i18n="filter_bakery">Boulangerie</button>
       <button class="filter-btn" data-cat="dairy" data-i18n="filter_dairy">Produits laitiers</button>
       <button class="filter-btn" data-cat="drinks" data-i18n="filter_drinks">Boissons</button>
       <button class="filter-btn" data-cat="grocery" data-i18n="filter_grocery">Épicerie</button>
       <button class="filter-btn" data-cat="meat" data-i18n="filter_meat">Boucherie</button>
     </div>
+  </div>
+</div>
 
+<section class="section" style="padding-top:12px;">
+  <div class="container">
+    <p class="result-count" id="result-count"></p>
     <div class="grid-products" id="product-list"></div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="cta-band" data-reveal="scale">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <div>
+        <h2><span data-i18n="cta_title_1">Envie de visiter</span> <em data-i18n="cta_title_2">Top Marché ?</em></h2>
+        <p data-i18n="cta_sub">Nous sommes situés au cœur de Bussigny, facilement accessibles.</p>
+      </div>
+      <a href="contato.html" class="btn btn-primary">
+        <span data-i18n="cta_btn">Contactez-nous</span>
+        <span class="arr">→</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -60,7 +106,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><span>🛒</span> Top Marché</div>
+        <div class="footer-brand"><span class="brand-mark">🛒</span> Top Marché</div>
         <p data-i18n="footer_about_text">Votre supermarché de proximité à Bussigny, Vaud. Site de démonstration créé pour présenter une nouvelle vitrine en ligne.</p>
       </div>
       <div>
@@ -77,6 +123,7 @@
       <div>
         <h4 data-i18n="footer_lang_title">Langue</h4>
         <div class="lang-switch" style="width:fit-content;">
+          <span class="lang-pill"></span>
           <button data-lang="fr">FR</button>
           <button data-lang="pt">PT</button>
           <button data-lang="en">EN</button>
@@ -91,48 +138,54 @@
 </footer>
 
 <script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
 <script>
-  let currentCat = "all";
+  (function () {
+    const params = new URLSearchParams(location.search);
+    let currentCat = params.get("cat") || "all";
+    if (!CATEGORIES.some((c) => c.key === currentCat)) currentCat = "all";
 
-  function renderProducts(lang) {
-    const wrap = document.getElementById("product-list");
-    if (!wrap) return;
-    const dict = I18N[lang] || I18N.fr;
-    const catLabels = {
-      fruits: dict.filter_fruits, bakery: dict.filter_bakery, dairy: dict.filter_dairy,
-      drinks: dict.filter_drinks, grocery: dict.filter_grocery, meat: dict.filter_meat,
-    };
-    const list = currentCat === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.cat === currentCat);
-    wrap.innerHTML = list.map((p) => `
-      <div class="product-card">
-        ${p.promo ? `<span class="product-badge">${dict.badge_promo}</span>` : ""}
-        <div class="product-media">${p.icon}</div>
-        <div class="product-body">
-          <div class="product-cat">${catLabels[p.cat]}</div>
-          <div class="product-name">${p.name[lang]}</div>
-          <div class="price-row">
-            <span class="price">CHF ${p.price.toFixed(2)}</span>
-            ${p.oldPrice ? `<span class="price-old">CHF ${p.oldPrice.toFixed(2)}</span>` : ""}
-          </div>
-        </div>
-      </div>
-    `).join("");
-  }
+    function paint(lang) {
+      const list =
+        currentCat === "all"
+          ? PRODUCTS
+          : PRODUCTS.filter((p) => p.cat === currentCat);
 
-  window.onLangChange = renderProducts;
+      window.TopMarche.renderProducts(
+        document.getElementById("product-list"),
+        list,
+        lang
+      );
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("#filters .filter-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        currentCat = btn.getAttribute("data-cat");
-        document.querySelectorAll("#filters .filter-btn").forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderProducts(window.TopMarche.getLang());
+      const counter = document.getElementById("result-count");
+      if (counter) {
+        counter.textContent = list.length + " " + window.TopMarche.dict(lang).results_word;
+      }
+    }
+
+    window.onLangChange = paint;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("#filters .filter-btn").forEach(function (btn) {
+        btn.classList.toggle("active", btn.dataset.cat === currentCat);
+
+        btn.addEventListener("click", function () {
+          currentCat = btn.dataset.cat;
+          document
+            .querySelectorAll("#filters .filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const url = new URL(location.href);
+          if (currentCat === "all") url.searchParams.delete("cat");
+          else url.searchParams.set("cat", currentCat);
+          history.replaceState(null, "", url);
+
+          paint(window.TopMarche.getLang());
+        });
       });
     });
-  });
+  })();
 </script>
-<script src="assets/js/main.js"></script>
-<script>renderProducts(window.TopMarche ? window.TopMarche.getLang() : "fr");</script>
 </body>
 </html>

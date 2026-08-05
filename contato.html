@@ -3,78 +3,113 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.classList.add("js");</script>
 <title>Contact — Top Marché Bussigny</title>
 <meta name="description" content="Contactez Top Marché à Bussigny : adresse, horaires et formulaire de contact." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+
+<div class="preloader">
+  <div style="display:grid;place-items:center;">
+    <div class="preloader-mark">🛒</div>
+    <div class="preloader-bar"><span></span></div>
+  </div>
+</div>
+
+<div class="scroll-progress"></div>
 
 <div class="demo-banner" data-i18n="demo_banner">Site de démonstration réalisé pour présentation au propriétaire de Top Marché, Bussigny.</div>
 
 <header class="site-header">
   <div class="nav-wrap">
     <a href="index.html" class="brand"><span class="brand-mark">🛒</span> Top Marché</a>
+
     <nav class="main-nav">
       <a href="index.html" data-i18n="nav_home">Accueil</a>
       <a href="ofertas.html" data-i18n="nav_offers">Offres</a>
       <a href="contato.html" class="active" data-i18n="nav_contact">Contact</a>
     </nav>
+
     <div class="nav-right">
       <div class="lang-switch">
+        <span class="lang-pill"></span>
         <button data-lang="fr">FR</button>
         <button data-lang="pt">PT</button>
         <button data-lang="en">EN</button>
       </div>
-      <a href="contato.html" class="btn btn-outline" style="padding:10px 18px;" data-i18n="nav_cta">Nous trouver</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a href="contato.html" class="btn btn-ghost btn-sm" data-i18n="nav_cta">Nous trouver</a>
+      <button class="menu-toggle" aria-label="Menu"><i></i><i></i><i></i></button>
     </div>
   </div>
 </header>
 
-<section class="section" style="padding-top:56px;">
+<section class="page-head">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-vignette"></div>
+  </div>
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="contact_eyebrow">Contact</span>
-      <h2 data-i18n="contact_title">Parlons de votre projet</h2>
-      <p data-i18n="contact_sub">Une question, une suggestion, ou vous êtes le propriétaire de Top Marché et souhaitez ce site ? Écrivez-nous.</p>
-    </div>
+    <span class="eyebrow" data-i18n="contact_eyebrow">Contact</span>
+    <h1>
+      <span class="line"><span data-i18n="contact_title_1" style="--d:200ms">Parlons de</span></span>
+      <span class="line"><em data-i18n="contact_title_2" style="--d:340ms">votre projet.</em></span>
+    </h1>
+    <p data-i18n="contact_sub">Une question, une suggestion, ou vous êtes le propriétaire de Top Marché et souhaitez ce site ? Écrivez-nous.</p>
+  </div>
+</section>
 
+<section class="section">
+  <div class="container">
     <div class="split">
-      <div class="form-card">
-        <form id="contact-form">
-          <div class="form-group">
-            <label data-i18n="form_name">Nom complet</label>
-            <input type="text" required data-i18n-placeholder="form_name" />
+      <div class="form-card" data-reveal="left">
+        <form id="contact-form" novalidate>
+          <div class="field">
+            <input type="text" id="f-name" placeholder=" " required />
+            <label for="f-name" data-i18n="form_name">Nom complet</label>
+            <span class="bar"></span>
           </div>
-          <div class="form-group">
-            <label data-i18n="form_email">E-mail</label>
-            <input type="email" required data-i18n-placeholder="form_email" />
+          <div class="field">
+            <input type="email" id="f-email" placeholder=" " required />
+            <label for="f-email" data-i18n="form_email">E-mail</label>
+            <span class="bar"></span>
           </div>
-          <div class="form-group">
-            <label data-i18n="form_subject">Sujet</label>
-            <input type="text" data-i18n-placeholder="form_subject" />
+          <div class="field">
+            <input type="text" id="f-subject" placeholder=" " />
+            <label for="f-subject" data-i18n="form_subject">Sujet</label>
+            <span class="bar"></span>
           </div>
-          <div class="form-group">
-            <label data-i18n="form_message">Message</label>
-            <textarea rows="5" required data-i18n-placeholder="form_message"></textarea>
+          <div class="field">
+            <textarea id="f-message" rows="4" placeholder=" " required></textarea>
+            <label for="f-message" data-i18n="form_message">Message</label>
+            <span class="bar"></span>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;" data-i18n="form_submit">Envoyer le message</button>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            <span data-i18n="form_submit">Envoyer le message</span>
+            <span class="arr">→</span>
+          </button>
+
+          <p class="form-success"></p>
           <p class="form-note" data-i18n="form_note">Ceci est un site de démonstration — le formulaire n'envoie aucune donnée réelle.</p>
         </form>
       </div>
 
-      <div>
-        <div class="map-wrap" style="margin-bottom:28px;">
-          <iframe src="https://www.google.com/maps?q=Route+de+Gen%C3%A8ve+5,+1030+Bussigny,+Suisse&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Top Marché - Route de Genève 5, 1030 Bussigny"></iframe>
+      <div data-reveal="right">
+        <div class="map-wrap" style="margin-bottom:24px;">
+          <iframe src="https://www.google.com/maps?q=Route+de+Gen%C3%A8ve+5,+1030+Bussigny,+Suisse&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Top Marché — Route de Genève 5, 1030 Bussigny"></iframe>
         </div>
 
-        <div class="info-item" style="margin-bottom:16px;">
+        <div class="info-item" style="margin-bottom:18px;">
           <div class="info-icon">📍</div>
           <div>
-            <h4 data-i18n="contact_address_title">Adresse & accès</h4>
+            <h4 data-i18n="contact_address_title">Adresse &amp; accès</h4>
             <p data-i18n="info_address_text">Route de Genève 5, 1030 Bussigny, Suisse</p>
           </div>
         </div>
@@ -82,7 +117,7 @@
         <div class="info-item">
           <div class="info-icon">🕒</div>
           <div style="width:100%;">
-            <h4 data-i18n="contact_hours_title" style="margin-bottom:12px;">Horaires d'ouverture</h4>
+            <h4 data-i18n="contact_hours_title" style="margin-bottom:10px;">Horaires d'ouverture</h4>
             <table class="hours-table">
               <tr><td data-i18n="day_mon_fri">Lundi – Vendredi</td><td>8h00 – 19h00</td></tr>
               <tr><td data-i18n="day_sat">Samedi</td><td>8h00 – 18h00</td></tr>
@@ -99,7 +134,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><span>🛒</span> Top Marché</div>
+        <div class="footer-brand"><span class="brand-mark">🛒</span> Top Marché</div>
         <p data-i18n="footer_about_text">Votre supermarché de proximité à Bussigny, Vaud. Site de démonstration créé pour présenter une nouvelle vitrine en ligne.</p>
       </div>
       <div>
@@ -116,6 +151,7 @@
       <div>
         <h4 data-i18n="footer_lang_title">Langue</h4>
         <div class="lang-switch" style="width:fit-content;">
+          <span class="lang-pill"></span>
           <button data-lang="fr">FR</button>
           <button data-lang="pt">PT</button>
           <button data-lang="en">EN</button>

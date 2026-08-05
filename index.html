@@ -3,122 +3,209 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.classList.add("js");</script>
 <title>Top Marché — Supermarché de proximité à Bussigny</title>
 <meta name="description" content="Top Marché, votre supermarché de proximité à Bussigny (VD), Suisse. Produits frais, offres de la semaine, horaires et adresse." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+
+<div class="preloader">
+  <div style="display:grid;place-items:center;">
+    <div class="preloader-mark">🛒</div>
+    <div class="preloader-bar"><span></span></div>
+  </div>
+</div>
+
+<div class="scroll-progress"></div>
 
 <div class="demo-banner" data-i18n="demo_banner">Site de démonstration réalisé pour présentation au propriétaire de Top Marché, Bussigny.</div>
 
 <header class="site-header">
   <div class="nav-wrap">
     <a href="index.html" class="brand"><span class="brand-mark">🛒</span> Top Marché</a>
+
     <nav class="main-nav">
       <a href="index.html" class="active" data-i18n="nav_home">Accueil</a>
       <a href="ofertas.html" data-i18n="nav_offers">Offres</a>
       <a href="contato.html" data-i18n="nav_contact">Contact</a>
     </nav>
+
     <div class="nav-right">
       <div class="lang-switch">
+        <span class="lang-pill"></span>
         <button data-lang="fr">FR</button>
         <button data-lang="pt">PT</button>
         <button data-lang="en">EN</button>
       </div>
-      <a href="contato.html" class="btn btn-outline" style="padding:10px 18px;" data-i18n="nav_cta">Nous trouver</a>
-      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a href="contato.html" class="btn btn-ghost btn-sm" data-i18n="nav_cta">Nous trouver</a>
+      <button class="menu-toggle" aria-label="Menu"><i></i><i></i><i></i></button>
     </div>
   </div>
 </header>
 
+<!-- ============================================================== Hero -->
 <section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-vignette"></div>
+  </div>
+
   <div class="container">
     <div>
-      <span class="hero-eyebrow" data-i18n="hero_eyebrow">Bussigny · Vaud · Suisse</span>
-      <h1 data-i18n="hero_title">Top Marché, votre supermarché de proximité à Bussigny</h1>
-      <p class="lead" data-i18n="hero_lead">Des produits frais, des prix justes et un accueil chaleureux au cœur de Bussigny. Retrouvez toutes nos offres de la semaine et venez nous rendre visite.</p>
+      <span class="hero-eyebrow"><span class="dot"></span><span data-i18n="hero_eyebrow">Bussigny · Vaud · Suisse</span></span>
+
+      <h1>
+        <span class="line"><span data-i18n="hero_title_1" style="--d:250ms">Le goût du frais,</span></span>
+        <span class="line"><em data-i18n="hero_title_2" style="--d:400ms">chaque jour.</em></span>
+      </h1>
+
+      <p class="hero-lead" data-i18n="hero_lead">Top Marché, votre supermarché de proximité au cœur de Bussigny. Des produits sélectionnés avec soin, des prix justes et un accueil qui fait la différence.</p>
+
       <div class="hero-actions">
-        <a href="ofertas.html" class="btn btn-primary" data-i18n="hero_btn_offers">Voir les offres</a>
-        <a href="contato.html" class="btn btn-outline-light" data-i18n="hero_btn_visit">Nous trouver</a>
+        <a href="ofertas.html" class="btn btn-primary" data-i18n="hero_btn_offers">Découvrir les offres</a>
+        <a href="contato.html" class="btn btn-ghost" data-i18n="hero_btn_visit">Nous trouver</a>
       </div>
     </div>
-    <div class="hero-card">
+
+    <aside class="hero-card">
       <h3 data-i18n="hero_card_title">Infos pratiques</h3>
       <ul>
         <li><span class="ico">📍</span><span data-i18n="hero_info_address">Route de Genève 5, 1030 Bussigny</span></li>
         <li><span class="ico">🕒</span><span data-i18n="hero_info_hours">Lun–Ven 8h00–19h00 · Sam 8h00–18h00</span></li>
         <li><span class="ico">📞</span><span data-i18n="hero_info_phone">021 000 00 00 (exemple)</span></li>
       </ul>
+    </aside>
+  </div>
+
+  <div class="scroll-cue">
+    <span data-i18n="scroll_cue">Défiler</span>
+    <span class="rail"></span>
+  </div>
+</section>
+
+<!-- =========================================================== Marquee -->
+<div class="marquee"><div class="marquee-track"></div></div>
+
+<!-- ============================================================= Stats -->
+<section class="section-dark">
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num" data-count="20" data-suffix="+">0</div>
+      <div class="stat-label" data-i18n="stat1_label">produits en vitrine</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="6">0</div>
+      <div class="stat-label" data-i18n="stat2_label">rayons</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="11" data-suffix="h">0</div>
+      <div class="stat-label" data-i18n="stat3_label">d'ouverture par jour</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="3">0</div>
+      <div class="stat-label" data-i18n="stat4_label">langues disponibles</div>
     </div>
   </div>
 </section>
 
+<!-- ========================================================== Features -->
 <section class="section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head center" data-reveal>
       <span class="eyebrow" data-i18n="feat_eyebrow">Pourquoi nous choisir</span>
-      <h2 data-i18n="feat_title">Le meilleur du marché, tout près de chez vous</h2>
+      <h2><span data-i18n="feat_title_1">Le meilleur du marché,</span> <em data-i18n="feat_title_2">tout près de chez vous.</em></h2>
       <p data-i18n="feat_sub">Une sélection pensée pour les familles et les professionnels du quartier.</p>
     </div>
-    <div class="grid-3">
-      <div class="feature-card">
+
+    <div class="grid-3" data-stagger="120">
+      <article class="feature-card" data-reveal>
+        <span class="feature-num">01</span>
         <div class="feature-icon">🥦</div>
         <h3 data-i18n="feat1_title">Produits frais chaque jour</h3>
         <p data-i18n="feat1_text">Fruits, légumes, boulangerie et produits laitiers livrés et contrôlés quotidiennement.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="feature-card" data-reveal>
+        <span class="feature-num">02</span>
         <div class="feature-icon">🏷️</div>
         <h3 data-i18n="feat2_title">Prix justes garantis</h3>
         <p data-i18n="feat2_text">Des offres renouvelées chaque semaine et des prix compétitifs sur les produits du quotidien.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="feature-card" data-reveal>
+        <span class="feature-num">03</span>
         <div class="feature-icon">🤝</div>
         <h3 data-i18n="feat3_title">Proximité & service</h3>
         <p data-i18n="feat3_text">Un magasin à taille humaine, un accueil personnalisé et un accès facile en voiture ou à pied.</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
+<!-- ============================================================ Rayons -->
 <section class="section section-alt">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="rayons_eyebrow">Nos rayons</span>
+      <h2><span data-i18n="rayons_title_1">Tout ce qu'il vous faut,</span> <em data-i18n="rayons_title_2">sous un même toit.</em></h2>
+      <p data-i18n="rayons_sub">Six univers pour composer vos repas de la semaine sans détour.</p>
+    </div>
+
+    <div class="rayons" id="rayons"></div>
+  </div>
+</section>
+
+<!-- ============================================================ Offres -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center" data-reveal>
       <span class="eyebrow" data-i18n="offers_eyebrow">Cette semaine</span>
-      <h2 data-i18n="offers_title">Nos offres en vedette</h2>
+      <h2><span data-i18n="offers_title_1">Nos offres</span> <em data-i18n="offers_title_2">en vedette.</em></h2>
       <p data-i18n="offers_sub">Un aperçu de nos meilleures promotions du moment.</p>
     </div>
+
     <div class="grid-products" id="featured-products"></div>
-    <div class="center">
-      <a href="ofertas.html" class="btn btn-primary" data-i18n="offers_see_all">Voir toutes les offres</a>
+
+    <div class="center" data-reveal>
+      <a href="ofertas.html" class="btn btn-outline">
+        <span data-i18n="offers_see_all">Voir toutes les offres</span>
+        <span class="arr">→</span>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ============================================================= Infos -->
+<section class="section section-alt">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="eyebrow" data-i18n="hours_eyebrow">Infos pratiques</span>
       <h2 data-i18n="hours_title">Horaires, adresse et accès</h2>
     </div>
-    <div class="info-strip">
-      <div class="info-item">
+
+    <div class="info-strip" data-stagger="110" style="margin-bottom:48px;">
+      <div class="info-item" data-reveal>
         <div class="info-icon">📍</div>
         <div>
           <h4 data-i18n="info_address_title">Adresse</h4>
           <p data-i18n="info_address_text">Route de Genève 5, 1030 Bussigny, Suisse</p>
         </div>
       </div>
-      <div class="info-item">
+      <div class="info-item" data-reveal>
         <div class="info-icon">🕒</div>
         <div>
           <h4 data-i18n="info_hours_title">Horaires d'ouverture</h4>
           <p data-i18n="info_hours_text">Lun–Ven 8h00–19h00 · Sam 8h00–18h00 · Dim fermé</p>
         </div>
       </div>
-      <div class="info-item">
+      <div class="info-item" data-reveal>
         <div class="info-icon">📞</div>
         <div>
           <h4 data-i18n="info_phone_title">Contact</h4>
@@ -126,34 +213,37 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container">
-    <div class="map-wrap">
-      <iframe src="https://www.google.com/maps?q=Route+de+Gen%C3%A8ve+5,+1030+Bussigny,+Suisse&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Top Marché - Route de Genève 5, 1030 Bussigny"></iframe>
+    <div class="map-wrap" data-reveal="scale">
+      <iframe src="https://www.google.com/maps?q=Route+de+Gen%C3%A8ve+5,+1030+Bussigny,+Suisse&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Top Marché — Route de Genève 5, 1030 Bussigny"></iframe>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- =============================================================== CTA -->
+<section class="section-tight">
   <div class="container">
-    <div class="cta-band">
+    <div class="cta-band" data-reveal="scale">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
       <div>
-        <h2 data-i18n="cta_title">Envie de visiter Top Marché ?</h2>
+        <h2><span data-i18n="cta_title_1">Envie de visiter</span> <em data-i18n="cta_title_2">Top Marché ?</em></h2>
         <p data-i18n="cta_sub">Nous sommes situés au cœur de Bussigny, facilement accessibles.</p>
       </div>
-      <a href="contato.html" class="btn btn-primary" data-i18n="cta_btn">Contactez-nous</a>
+      <a href="contato.html" class="btn btn-primary">
+        <span data-i18n="cta_btn">Contactez-nous</span>
+        <span class="arr">→</span>
+      </a>
     </div>
   </div>
 </section>
 
+<!-- ============================================================ Footer -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><span>🛒</span> Top Marché</div>
+        <div class="footer-brand"><span class="brand-mark">🛒</span> Top Marché</div>
         <p data-i18n="footer_about_text">Votre supermarché de proximité à Bussigny, Vaud. Site de démonstration créé pour présenter une nouvelle vitrine en ligne.</p>
       </div>
       <div>
@@ -170,6 +260,7 @@
       <div>
         <h4 data-i18n="footer_lang_title">Langue</h4>
         <div class="lang-switch" style="width:fit-content;">
+          <span class="lang-pill"></span>
           <button data-lang="fr">FR</button>
           <button data-lang="pt">PT</button>
           <button data-lang="en">EN</button>
@@ -184,34 +275,16 @@
 </footer>
 
 <script src="assets/js/i18n.js"></script>
-<script>
-  function renderFeatured(lang) {
-    const wrap = document.getElementById("featured-products");
-    if (!wrap) return;
-    const dict = I18N[lang] || I18N.fr;
-    const catLabels = {
-      fruits: dict.filter_fruits, bakery: dict.filter_bakery, dairy: dict.filter_dairy,
-      drinks: dict.filter_drinks, grocery: dict.filter_grocery, meat: dict.filter_meat,
-    };
-    const featured = PRODUCTS.filter((p) => p.promo).slice(0, 4);
-    wrap.innerHTML = featured.map((p) => `
-      <div class="product-card">
-        <span class="product-badge">${dict.badge_promo}</span>
-        <div class="product-media">${p.icon}</div>
-        <div class="product-body">
-          <div class="product-cat">${catLabels[p.cat]}</div>
-          <div class="product-name">${p.name[lang]}</div>
-          <div class="price-row">
-            <span class="price">CHF ${p.price.toFixed(2)}</span>
-            ${p.oldPrice ? `<span class="price-old">CHF ${p.oldPrice.toFixed(2)}</span>` : ""}
-          </div>
-        </div>
-      </div>
-    `).join("");
-  }
-  window.onLangChange = renderFeatured;
-</script>
 <script src="assets/js/main.js"></script>
-<script>renderFeatured(window.TopMarche ? window.TopMarche.getLang() : "fr");</script>
+<script>
+  window.onLangChange = function (lang) {
+    const featured = PRODUCTS.filter((p) => p.promo).slice(0, 4);
+    window.TopMarche.renderProducts(
+      document.getElementById("featured-products"),
+      featured,
+      lang
+    );
+  };
+</script>
 </body>
 </html>
