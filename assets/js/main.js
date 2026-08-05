@@ -1,116 +1,11 @@
-/* Top Marché — interactions & animations */
+/* Maison Nette — interactions & animations */
 (function () {
   "use strict";
 
-  const LANG_KEY = "topmarche_lang";
-  const SUPPORTED = ["fr", "pt", "en"];
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const CONTACT_EMAIL = "jhoniterra@gmail.com";
 
-  /* ------------------------------------------------------------ Langue */
-
-  function getLang() {
-    const saved = localStorage.getItem(LANG_KEY);
-    if (saved && SUPPORTED.includes(saved)) return saved;
-    const nav = (navigator.language || "fr").slice(0, 2).toLowerCase();
-    return SUPPORTED.includes(nav) ? nav : "fr";
-  }
-
-  function dict(lang) {
-    return I18N[lang || getLang()] || I18N.fr;
-  }
-
-  function movePills() {
-    document.querySelectorAll(".lang-switch").forEach((sw) => {
-      const pill = sw.querySelector(".lang-pill");
-      const active = sw.querySelector("button.active");
-      if (!pill || !active) return;
-      pill.style.width = active.offsetWidth + "px";
-      pill.style.transform = "translateX(" + active.offsetLeft + "px)";
-    });
-  }
-
-  function applyTranslations(lang) {
-    const d = dict(lang);
-    document.documentElement.setAttribute("lang", lang);
-
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (d[key]) el.textContent = d[key];
-    });
-
-    document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
-      const [attr, key] = el.getAttribute("data-i18n-attr").split(":");
-      if (d[key]) el.setAttribute(attr, d[key]);
-    });
-
-    document.querySelectorAll(".lang-switch button").forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.lang === lang);
-    });
-
-    movePills();
-    buildMarquee(lang);
-    buildRayons(lang);
-
-    if (typeof window.onLangChange === "function") window.onLangChange(lang, d);
-  }
-
-  function setLang(lang) {
-    localStorage.setItem(LANG_KEY, lang);
-    applyTranslations(lang);
-  }
-
-  /* --------------------------------------------------------- Composants */
-
-  function buildMarquee(lang) {
-    const track = document.querySelector(".marquee-track");
-    if (!track) return;
-    const d = dict(lang);
-    const words = CATEGORIES.map((c) => d["filter_" + c.key]);
-    const line = words.map((w) => "<span>" + w + "</span>").join("");
-    track.innerHTML = line + line; /* dupliqué pour une boucle sans couture */
-  }
-
-  function buildRayons(lang) {
-    const wrap = document.querySelector("#rayons");
-    if (!wrap) return;
-    const d = dict(lang);
-    wrap.innerHTML = CATEGORIES.map((c, i) => {
-      const n = PRODUCTS.filter((p) => p.cat === c.key).length;
-      return (
-        '<a class="rayon" href="ofertas.html?cat=' + c.key + '" data-reveal style="--d:' + i * 70 + 'ms">' +
-        '<span class="rayon-ico">' + c.icon + "</span>" +
-        "<h3>" + d["filter_" + c.key] + "</h3>" +
-        '<span class="count">' + n + " " + d.products_word + "</span>" +
-        '<span class="go" aria-hidden="true">→</span>' +
-        "</a>"
-      );
-    }).join("");
-    observeReveals(wrap);
-  }
-
-  function productCard(p, lang, index) {
-    const d = dict(lang);
-    return (
-      '<article class="product-card" style="--d:' + index * 55 + 'ms">' +
-      (p.promo ? '<span class="product-badge">' + d.badge_promo + "</span>" : "") +
-      '<div class="product-media"><span>' + p.icon + "</span></div>" +
-      '<div class="product-body">' +
-      '<div class="product-cat">' + d["filter_" + p.cat] + "</div>" +
-      '<h3 class="product-name">' + p.name[lang] + "</h3>" +
-      '<div class="price-row"><span class="price">CHF ' + p.price.toFixed(2) + "</span>" +
-      (p.oldPrice ? '<span class="price-old">CHF ' + p.oldPrice.toFixed(2) + "</span>" : "") +
-      "</div></div></article>"
-    );
-  }
-
-  function renderProducts(container, list, lang) {
-    if (!container) return;
-    container.innerHTML = list
-      .map((p, i) => productCard(p, lang, i))
-      .join("");
-  }
-
-  /* ------------------------------------------------------- Révélations */
+  /* ---------------------------------------------------------- Révélations */
 
   let revealObserver = null;
 
@@ -144,47 +39,6 @@
         }
       });
     });
-  }
-
-  /* --------------------------------------------------------- Compteurs */
-
-  function runCounter(el) {
-    const target = parseFloat(el.dataset.count);
-    const suffix = el.dataset.suffix || "";
-    if (reduced) {
-      el.innerHTML = target + (suffix ? '<span class="suffix">' + suffix + "</span>" : "");
-      return;
-    }
-    const duration = 1700;
-    const start = performance.now();
-    function tick(now) {
-      const t = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 4);
-      const value = Math.round(target * eased);
-      el.innerHTML = value + (suffix ? '<span class="suffix">' + suffix + "</span>" : "");
-      if (t < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  function initCounters() {
-    const nums = document.querySelectorAll("[data-count]");
-    if (!nums.length) return;
-    if (!("IntersectionObserver" in window)) {
-      nums.forEach(runCounter);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          runCounter(entry.target);
-          io.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.5 }
-    );
-    nums.forEach((n) => io.observe(n));
   }
 
   /* ------------------------------------------------------------ En-tête */
@@ -272,7 +126,7 @@
 
   function initCardGlow() {
     if (reduced) return;
-    document.querySelectorAll(".feature-card").forEach((card) => {
+    document.querySelectorAll(".service-card").forEach((card) => {
       card.addEventListener("mousemove", (e) => {
         const r = card.getBoundingClientRect();
         card.style.setProperty("--mx", ((e.clientX - r.left) / r.width) * 100 + "%");
@@ -292,6 +146,20 @@
     if (rows[rowIndex]) rows[rowIndex].classList.add("today");
   }
 
+  /* --------------------------------------------------------------- FAQ */
+
+  function initFaq() {
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      const q = item.querySelector(".faq-q");
+      const a = item.querySelector(".faq-a");
+      if (!q || !a) return;
+      q.addEventListener("click", () => {
+        const open = item.classList.toggle("open");
+        a.style.maxHeight = open ? a.scrollHeight + "px" : "0px";
+      });
+    });
+  }
+
   /* --------------------------------------------------------- Formulaire */
 
   function initForm() {
@@ -299,46 +167,71 @@
     if (!form) return;
     const success = form.querySelector(".form-success");
 
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service");
+    if (service) {
+      const select = form.querySelector("#service");
+      if (select && [...select.options].some((o) => o.value === service)) {
+        select.value = service;
+      }
+    }
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      const data = new FormData(form);
+      const name = (data.get("name") || "").toString().trim();
+      const email = (data.get("email") || "").toString().trim();
+      const phone = (data.get("phone") || "").toString().trim();
+      const serviceLabel = form.querySelector("#service")
+        ? form.querySelector("#service").selectedOptions[0].text
+        : "";
+      const message = (data.get("message") || "").toString().trim();
+
+      const subject = "Demande de devis — " + (serviceLabel || "site web");
+      const body =
+        "Nom : " + name + "\n" +
+        "E-mail : " + email + "\n" +
+        "Téléphone : " + phone + "\n" +
+        "Service souhaité : " + serviceLabel + "\n\n" +
+        "Message :\n" + message;
+
+      const mailto =
+        "mailto:" + CONTACT_EMAIL +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      window.location.href = mailto;
+
       if (success) {
-        success.textContent = dict().form_success;
+        success.textContent =
+          "Votre logiciel de messagerie va s'ouvrir avec votre demande pré-remplie. Vous pouvez aussi appeler ou écrire directement.";
         success.classList.add("show");
-        setTimeout(() => success.classList.remove("show"), 6000);
       }
-      form.reset();
     });
   }
 
   /* ------------------------------------------------------------- Départ */
 
-  window.TopMarche = { getLang, setLang, dict, renderProducts, observeReveals };
+  window.MaisonNette = { observeReveals };
 
   document.addEventListener("DOMContentLoaded", () => {
-    applyTranslations(getLang());
-
-    document.querySelectorAll(".lang-switch button").forEach((btn) => {
-      btn.addEventListener("click", () => setLang(btn.dataset.lang));
-    });
-
     applyStagger();
     observeReveals();
-    initCounters();
     initHeader();
     initMenu();
     initParallax();
     initCardGlow();
     highlightToday();
+    initFaq();
     initForm();
 
-    window.addEventListener("resize", movePills);
-    document.fonts && document.fonts.ready.then(movePills);
+    const yearEl = document.querySelector("#year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
   });
 
   window.addEventListener("load", () => {
     setTimeout(() => document.body.classList.add("loaded"), 120);
   });
 
-  /* Filet de sécurité : ne jamais laisser le préchargeur bloquer la page */
   setTimeout(() => document.body.classList.add("loaded"), 2500);
 })();

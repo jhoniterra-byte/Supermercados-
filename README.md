@@ -1,44 +1,49 @@
-# Top Marché — site de démonstration
+# Maison Nette — site de nettoyage résidentiel &amp; bureaux
 
-Site vitrine multilingue (FR / PT / EN) réalisé pour présenter une proposition
-de nouvelle présence en ligne à **Top Marché**, supermarché de proximité situé
-Route de Genève 5, 1030 Bussigny (Vaud, Suisse).
+Site vitrine pour **Maison Nette**, service de nettoyage résidentiel, bureaux,
+fin de bail et nettoyage en profondeur à Lausanne et dans la région (Vaud,
+Suisse).
 
-⚠️ Ceci est un site de **démonstration / prospection commerciale**, non
-affilié officiellement au commerce. Les horaires, le téléphone et les prix
-affichés sont des exemples à remplacer par les informations réelles avant
-toute mise en ligne.
+⚠️ Ceci est un site de **démonstration**. Vérifiez et remplacez si besoin le
+téléphone, l'e-mail et les horaires affichés avant toute mise en ligne
+officielle, et retirez le bandeau « site de démonstration » en haut de
+chaque page.
 
 ## Contenu
 
-- `index.html` — page d'accueil (hero animé, chiffres clés, points forts,
-  rayons, offres en vedette, horaires/adresse, carte, appel à l'action)
-- `ofertas.html` — catalogue complet avec filtres par catégorie
-  (le filtre actif se reflète dans l'URL : `ofertas.html?cat=bakery`)
-- `contato.html` — coordonnées, carte, horaires et formulaire de contact
-  (démo, n'envoie aucune donnée)
+- `index.html` — page d'accueil (hero, atouts, aperçu des services, pourquoi
+  nous choisir, étapes du processus, zone d'intervention avec carte, appel
+  à l'action)
+- `services.html` — détail des 4 prestations (résidentiel, bureaux, fin de
+  bail, nettoyage en profondeur) et foire aux questions
+- `contact.html` — coordonnées, horaires et formulaire de devis (ouvre le
+  client de messagerie avec la demande pré-remplie, aucune donnée n'est
+  envoyée à un serveur)
 - `assets/css/style.css` — styles partagés
-- `assets/js/i18n.js` — dictionnaire de traductions (FR/PT/EN), catégories
-  et données produits
-- `assets/js/main.js` — logique JS (langue, menu mobile, révélations au
-  défilement, compteurs, parallaxe, formulaire)
+- `assets/js/main.js` — logique JS (menu mobile, révélations au défilement,
+  accordéon FAQ, formulaire de contact)
+
+## Coordonnées actuelles (à vérifier avant mise en ligne)
+
+- Téléphone / WhatsApp : `+41 76 767 93 16`
+- E-mail : `jhoniterra@gmail.com`
+- Zone d'intervention : Lausanne, Renens, Prilly, Pully, Écublens,
+  Chavannes-près-Renens, Crissier, Épalinges, Morges
 
 ## Animations & accessibilité
 
 Les animations sont pilotées par `IntersectionObserver` et de simples
 transitions CSS — aucune bibliothèque externe.
 
-Deux garde-fous importants :
-
-- Tout ce qui est masqué au départ est préfixé par `.js` (classe posée par
-  un script en ligne dans le `<head>`). **Sans JavaScript, rien n'est
-  masqué** : la page reste entièrement lisible.
+- Tout ce qui est masqué au départ est préfixé par `[data-reveal]`, révélé
+  par script. **Sans JavaScript, rien n'est masqué** : la page reste
+  entièrement lisible.
 - `prefers-reduced-motion: reduce` désactive les mouvements et affiche
-  immédiatement les contenus et les compteurs.
+  immédiatement les contenus.
 
 ## Utilisation
 
-Site 100% statique, sans dépendance de build. Pour le tester en local :
+Site 100 % statique, sans dépendance de build. Pour le tester en local :
 
 ```bash
 python3 -m http.server 8000
@@ -51,7 +56,9 @@ hébergement statique.
 
 ## Personnalisation avant mise en ligne réelle
 
-- Remplacer téléphone, e-mail et horaires par les vraies informations
-- Remplacer les produits/prix d'exemple par le catalogue réel
+- Confirmer téléphone, e-mail et horaires réels
 - Ajouter de vraies photos (actuellement icônes/emoji en guise de visuels)
+- Remplacer le formulaire "mailto" par un vrai service d'envoi si un volume
+  important de demandes est attendu (ex. Formspree, Netlify Forms)
 - Retirer le bandeau « site de démonstration » en haut de chaque page
+- Envisager un nom de domaine dédié (ex. `maisonnette.ch`)

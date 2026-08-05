@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact &amp; devis gratuit — Maison Nette</title>
+<meta name="description" content="Demandez votre devis gratuit pour un nettoyage résidentiel, de bureaux ou de fin de bail à Lausanne. Téléphone, e-mail et formulaire de contact." />
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<div class="demo-banner">
+  🧪 <strong>Site de démonstration</strong> — le formulaire ouvre votre messagerie ; aucune donnée n'est envoyée à un serveur.
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">✨</span>
+      <span>Maison Nette<small>Nettoyage à Lausanne &amp; région</small></span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#zone">Zone d'intervention</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+41767679316">
+        <span class="ico">📞</span>
+        <span class="text">076 767 93 16</span>
+      </a>
+      <a class="btn btn-primary btn-sm" href="contact.html">Devis gratuit</a>
+      <button class="menu-toggle" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h1>Parlons de votre nettoyage</h1>
+      <p>Appelez-nous, écrivez-nous par e-mail ou remplissez le formulaire ci-dessous : nous revenons vers vous rapidement avec un devis gratuit.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-layout">
+
+      <div class="contact-side">
+        <div class="contact-info-card" data-reveal>
+          <div class="contact-info-row">
+            <span class="ico">📞</span>
+            <div><strong>Téléphone / WhatsApp</strong><a href="tel:+41767679316">076 767 93 16</a></div>
+          </div>
+          <div class="contact-info-row">
+            <span class="ico">✉️</span>
+            <div><strong>E-mail</strong><a href="mailto:jhoniterra@gmail.com">jhoniterra@gmail.com</a></div>
+          </div>
+          <div class="contact-info-row">
+            <span class="ico">📍</span>
+            <div><strong>Zone d'intervention</strong><span>Lausanne &amp; région, canton de Vaud</span></div>
+          </div>
+        </div>
+
+        <div class="contact-info-card" data-reveal style="--d:80ms">
+          <h3 style="margin-bottom:14px;font-size:1rem">Horaires</h3>
+          <table class="hours-table">
+            <tr><td>Lundi – Vendredi</td><td>8h00 – 18h00</td></tr>
+            <tr><td>Samedi</td><td>9h00 – 13h00 (sur demande)</td></tr>
+            <tr><td>Dimanche</td><td>Fermé</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="contact-form-card" data-reveal style="--d:120ms">
+        <h2 style="font-size:1.3rem;margin-bottom:6px">Demander un devis gratuit</h2>
+        <p style="color:var(--text-muted);font-size:0.94rem;margin-bottom:26px">Remplissez ce formulaire, nous vous répondons sous peu.</p>
+
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" name="name" required placeholder="Votre nom" />
+            </div>
+            <div class="field">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="076 000 00 00" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" />
+          </div>
+
+          <div class="field">
+            <label for="service">Service souhaité</label>
+            <select id="service" name="service">
+              <option value="residentiel">Nettoyage résidentiel</option>
+              <option value="bureaux">Nettoyage de bureaux</option>
+              <option value="fin-de-bail">Nettoyage de fin de bail</option>
+              <option value="profond">Nettoyage en profondeur</option>
+              <option value="autre">Autre / je ne sais pas encore</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" placeholder="Surface approximative, fréquence souhaitée, adresse, dates possibles…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
+          <p class="form-note">En envoyant ce formulaire, votre logiciel de messagerie s'ouvre avec votre demande pré-remplie à l'adresse jhoniterra@gmail.com.</p>
+          <div class="form-success"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark">✨</span>
+          <span>Maison Nette</span>
+        </a>
+        <p>Nettoyage résidentiel, bureaux, fin de bail et grand ménage à Lausanne et dans la région.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="index.html#zone">Zone d'intervention</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#residentiel">Résidentiel</a></li>
+          <li><a href="services.html#bureaux">Bureaux</a></li>
+          <li><a href="services.html#fin-de-bail">Fin de bail</a></li>
+          <li><a href="services.html#profond">Nettoyage en profondeur</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+41767679316">📞 076 767 93 16</a></li>
+          <li><a href="mailto:jhoniterra@gmail.com">✉️ jhoniterra@gmail.com</a></li>
+          <li>📍 Lausanne &amp; région, Vaud</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Maison Nette — Tous droits réservés</span>
+      <span>Site de démonstration</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
