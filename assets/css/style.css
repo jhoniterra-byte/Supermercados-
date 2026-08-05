@@ -49,6 +49,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* The closed off-canvas menu is fixed just past the right edge; without this
+     the document stays sideways-scrollable on mobile. */
+  overflow-x: hidden;
 }
 
 body {
@@ -343,16 +346,24 @@ h4 {
 .menu-toggle span::after {
   content: "";
   position: absolute;
-  left: 11px;
-  right: 11px;
   height: 2px;
   background: var(--ink);
   transition: transform 0.3s var(--ease), opacity 0.3s;
 }
 
 .menu-toggle span {
+  left: 11px;
+  right: 11px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* The span is the pseudo-elements' containing block, so they stretch to its
+   full width — insetting them again here would collapse them to zero. */
+.menu-toggle span::before,
+.menu-toggle span::after {
+  left: 0;
+  right: 0;
 }
 
 .menu-toggle span::before {
@@ -563,7 +574,8 @@ h4 {
 
 .floating-badge {
   position: absolute;
-  bottom: -22px;
+  /* Hangs below the card: any less and it covers the price caption above it. */
+  bottom: -54px;
   left: -22px;
   background: var(--ink);
   color: var(--white);
@@ -1435,12 +1447,15 @@ h4 {
     gap: 6px;
     padding: 90px 30px 30px;
     transform: translateX(100%);
-    transition: transform 0.4s var(--ease);
+    /* Hidden while closed so its links stay out of the tab order. */
+    visibility: hidden;
+    transition: transform 0.4s var(--ease), visibility 0.4s var(--ease);
     box-shadow: -20px 0 50px rgba(0, 0, 0, 0.12);
   }
 
   .main-nav.open {
     transform: translateX(0);
+    visibility: visible;
   }
 
   .main-nav a {
