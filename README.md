@@ -1,13 +1,19 @@
 # Maison Nette — site de nettoyage résidentiel &amp; bureaux
 
+**En ligne :** https://maison-nette-cccc14.vercel.app (hébergement Vercel,
+déploiement en production).
+
 Site vitrine pour **Maison Nette**, service de nettoyage résidentiel, bureaux,
 fin de bail et nettoyage en profondeur à Lausanne et dans la région (Vaud,
 Suisse).
 
-⚠️ Ceci est un site de **démonstration**. Vérifiez et remplacez si besoin le
-téléphone, l'e-mail et les horaires affichés avant toute mise en ligne
-officielle, et retirez le bandeau « site de démonstration » en haut de
-chaque page.
+⚠️ Le site est **public**. Tout ce qui y figure est une promesse faite à de
+vrais clients : vérifier le téléphone, l'e-mail, les horaires et les communes
+desservies avant de communiquer l'adresse.
+
+La mention « Assurance RC professionnelle » a été retirée volontairement —
+elle avait été inventée pour remplir la maquette. Ne la remettre que si le
+contrat existe réellement.
 
 ## Contenu
 
@@ -98,13 +104,22 @@ puis ouvrir `http://localhost:8000/index.html`.
 Peut être déployé tel quel sur GitHub Pages, Netlify, Vercel ou tout
 hébergement statique.
 
-## Personnalisation avant mise en ligne réelle
+## Prochaines étapes
 
-- Confirmer téléphone, e-mail et horaires réels
+- Créer une fiche **Google Business Profile** : pour un service local, c'est
+  ce qui amène des clients, bien plus que le site lui-même
 - Remplacer les illustrations de « Nos réalisations » par de vraies photos
   (voir ci-dessus) — c'est l'élément qui convainc le plus un futur client
 - Ajouter de vraies photos aux autres sections (actuellement icônes/emoji)
 - Remplacer le formulaire "mailto" par un vrai service d'envoi si un volume
   important de demandes est attendu (ex. Formspree, Netlify Forms)
-- Retirer le bandeau « site de démonstration » en haut de chaque page
-- Envisager un nom de domaine dédié (ex. `maisonnette.ch`)
+- Envisager un nom de domaine dédié (`maison-nette.ch` était libre)
+- Charger réellement les polices Poppins / Inter : la feuille de style les
+  demande mais rien ne les télécharge, donc le site s'affiche aujourd'hui
+  avec la police système du visiteur
+
+## Redéployer
+
+Le site est déployé sur Vercel (projet `maison-nette`, équipe `cccc14`).
+Après modification des fichiers, redéployer le dossier tel quel — aucune
+étape de build n'est nécessaire, c'est du statique pur.
