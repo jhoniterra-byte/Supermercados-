@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>Um Traço — uma obra, um traço por pessoa, para sempre</title>
+<meta name="description" content="Uma tela infinita e coletiva onde cada pessoa, na vida inteira, só pode desenhar um único traço." />
+<meta name="theme-color" content="#0b0b12" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Um Traço" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icon.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <canvas id="canvas"></canvas>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span class="brand-name">Um Traço</span>
+    </div>
+    <button id="counterBtn" class="counter" type="button" aria-label="Ver quantos traços existem">
+      <span id="strokeCount">—</span> traços eternos
+    </button>
+    <button id="infoBtn" class="icon-btn" type="button" aria-label="O que é isso?">?</button>
+  </header>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer class="bottombar">
+    <button id="drawToggleBtn" class="cta" type="button">
+      Deixar meu traço
+    </button>
+    <p id="doneMsg" class="done-msg hidden">
+      Você já deixou seu traço. Ele é seu, para sempre — explore a obra.
+    </p>
+  </footer>
+
+  <div id="drawBanner" class="draw-banner hidden">
+    Toque e arraste para desenhar. Solte para gravar seu traço — <strong>para sempre</strong>. Você só tem um.
+    <button id="cancelDrawBtn" type="button">cancelar</button>
+  </div>
+
+</div>
+
+<div id="infoModal" class="modal hidden">
+  <div class="modal-card">
+    <h2>O que é "Um Traço"?</h2>
+    <p>
+      Uma tela infinita e coletiva. Cada pessoa, na vida inteira, pode desenhar
+      <strong>um único traço</strong> — uma linha contínua, sem levantar o dedo.
+    </p>
+    <p>
+      Depois de usar o seu, você nunca mais poderá desenhar aqui de novo.
+      Não existe "apagar" e recomeçar. O traço fica marcado com data e hora,
+      e passa a fazer parte da obra para sempre — ao lado de milhões de outros
+      traços de estranhos ao redor do mundo.
+    </p>
+    <p class="fine">
+      Este protótipo roda localmente no seu navegador (os traços de outras
+      pessoas mostrados aqui são simulados). Uma versão real precisaria de um
+      servidor compartilhado para que todo mundo veja a mesma obra.
+    </p>
+    <button id="closeInfoBtn" class="cta" type="button">Entendi</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
