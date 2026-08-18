@@ -1,38 +1,30 @@
 name: Publier le site sur GitHub Pages
 
+# GitHub Pages sert la branche gh-pages. Ce workflow la garde alignée sur la
+# branche par défaut : pousser ici publie le site.
+#
+# Pourquoi pas actions/deploy-pages : activer Pages par l'API demande une
+# permission que le GITHUB_TOKEN n'a pas sur ce dépôt (« Resource not
+# accessible by integration »). Pousser une branche ne demande que
+# contents: write, dont il dispose.
+
 on:
   push:
     branches: [claude/swiss-supermarket-website-j1t6lk]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-# Une seule publication à la fois ; on ne coupe pas celle qui est en cours.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  publish:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
-      # enablement: true active Pages sur le dépôt si ce n'est pas déjà fait.
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      # Site statique : rien à compiler, on publie le dépôt tel quel.
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Aligner gh-pages sur la branche par défaut
+        run: git push origin HEAD:gh-pages --force

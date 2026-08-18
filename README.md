@@ -1,7 +1,11 @@
 # Maison Nette — site de nettoyage résidentiel &amp; bureaux
 
-**En ligne :** https://maison-nette-cccc14.vercel.app (hébergement Vercel,
-déploiement en production).
+**En ligne :** https://jhoniterra-byte.github.io/maison-nette/ (GitHub Pages).
+
+Une copie reste sur https://maison-nette-cccc14.vercel.app, mais Vercel envoie
+`x-robots-tag: noindex` sur tous ses sous-domaines `.vercel.app` : cette
+adresse ne peut donc jamais apparaître dans une recherche Google. C'est la
+raison du passage à GitHub Pages, qui ne pose pas cet en-tête.
 
 Site vitrine pour **Maison Nette**, service de nettoyage résidentiel, bureaux,
 fin de bail et nettoyage en profondeur à Lausanne et dans la région (Vaud,
@@ -118,8 +122,13 @@ hébergement statique.
   demande mais rien ne les télécharge, donc le site s'affiche aujourd'hui
   avec la police système du visiteur
 
-## Redéployer
+## Republier
 
-Le site est déployé sur Vercel (projet `maison-nette`, équipe `cccc14`).
-Après modification des fichiers, redéployer le dossier tel quel — aucune
-étape de build n'est nécessaire, c'est du statique pur.
+GitHub Pages sert la branche `gh-pages`. Le workflow
+`.github/workflows/pages.yml` la réaligne sur la branche par défaut à chaque
+push : publier revient donc à pousser sur la branche par défaut. Aucune étape
+de build — c'est du statique pur.
+
+Le `sitemap.xml` et les balises `<link rel="canonical">` des trois pages
+contiennent l'adresse publique en dur. Si le nom du dépôt change, il faut les
+mettre à jour ensemble, sans quoi elles désignent une page inexistante.
