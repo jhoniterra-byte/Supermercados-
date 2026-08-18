@@ -1,0 +1,14 @@
+{
+  "name": "Um Traço",
+  "short_name": "Um Traço",
+  "description": "Uma tela infinita e coletiva onde cada pessoa, na vida inteira, só pode desenhar um único traço.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0b12",
+  "theme_color": "#0b0b12",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
